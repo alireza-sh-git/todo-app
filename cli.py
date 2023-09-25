@@ -1,10 +1,11 @@
 from todo_functions import *
 import time
 
+filepath = "todos.txt"
 
 now = time.strftime("%d %b, %Y   %H:%M:%S")
 print("It is", now)
-filepath = "todos.txt"
+
 todos = get_todos()
 
 while True:
@@ -34,7 +35,7 @@ while True:
             todoNumber = int(todoNumber) - 1
             removedTodo = todos[todoNumber]
             todos = delete_todo(todos, todoNumber)
-        except IndexError:
+        except:
             print("Invalid Input")
 
     elif userAction.startswith("edit"):
@@ -47,7 +48,7 @@ while True:
             todo = input("What do you want to edit it into? ")
             edit_todo(todos, todoNumber, todo)
             print(f"'{editedTodo}' was changed to {todo}.")
-        except IndexError:
+        except:
             print("Invalid Input")
 
     elif userAction.startswith("save"):
