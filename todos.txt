@@ -1,4 +1,6 @@
 prepare
-strangle
-fix
+start
+wash
 spring
+strap
+stop
