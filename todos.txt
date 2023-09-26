@@ -1,7 +1,5 @@
 prepare
-start
-wash
+put on clothes
 spring
-strap
 stop
 sprangle

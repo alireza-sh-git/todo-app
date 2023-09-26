@@ -11,7 +11,8 @@ editButton = sg.Button("Edit")
 deleteButton = sg.Button("Delete")
 saveButton = sg.Button("Save")
 exitButton = sg.Button("Exit")
-listBox = sg.Listbox(todos, size=(40, 10), key="todos")
+listBox = sg.Listbox(todos, size=(40, 10), key="todos",
+                     enable_events=True)
 window = sg.Window("My To-Do App",
                    layout=[[label], [inputBox, addButton],
                            [listBox, editButton, deleteButton],
@@ -28,9 +29,19 @@ while True:
                 todo_functions.add_todo(todos, todo)
                 listBox.update(todos)
         case "Edit":
-            break
+            editTodo = todos.index(values["todos"][0])
+            todo = values["todo"].strip()
+            if todo == "":
+                print("Please enter a todo")
+            else:
+                todo_functions.edit_todo(todos, editTodo, todo)
+                listBox.update(todos)
+        case "todos":
+            inputBox.update(values["todos"][0])
         case "Delete":
-            break
+            todo = todos.index(values["todos"][0])
+            todo_functions.delete_todo(todos, todo)
+            listBox.update(todos)
         case "Save":
             todo_functions.save_todos(todos)
         case "Exit":
