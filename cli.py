@@ -1,5 +1,11 @@
 from todo_functions import *
 import time
+import os
+
+
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
 
 filepath = "todos.txt"
 
